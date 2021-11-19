@@ -11,8 +11,8 @@ def main(hparams):
     img_encoder = resnet50(pretrained=True)
     img_encoder.fc = torch.nn.Linear(2048, 768)
 
-    tokenizer = AutoTokenizer.from_pretrained("johngiorgi/declutr-sci-base")
-    txt_encoder = AutoModel.from_pretrained("johngiorgi/declutr-sci-base")
+    tokenizer = AutoTokenizer.from_pretrained("hf_bpe.json")
+    txt_encoder = AutoModel.from_pretrained("hf_bpe.json")
 
     if hparams.minibatch_size < 1:
         hparams.minibatch_size = hparams.batch_size
